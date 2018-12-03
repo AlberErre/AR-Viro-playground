@@ -1,12 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HelloWorldSceneAR from './src/HelloWorldSceneAR';
+import { ViroARSceneNavigator } from 'react-viro';
+
+const apiKey = "YOUR_API_KEY_HERE";
+const arScenes = {
+  'HelloWorldSceneAR': require('./src/HelloWorldSceneAR')
+}
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <HelloWorldSceneAR />
+        <ViroARSceneNavigator
+          initialScene={{
+            scene: arScenes['HelloWorldSceneAR'],
+          }}
+          apiKey={apiKey}
+        />
       </View>
     );
   }
